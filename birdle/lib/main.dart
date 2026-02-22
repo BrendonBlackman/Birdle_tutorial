@@ -1,4 +1,4 @@
-// https://docs.flutter.dev/learn/pathway/tutorial/widget-fundamentals to continue
+// https://docs.flutter.dev/learn/pathway/tutorial/devtools to continue
 import 'package:flutter/material.dart';
 import 'game.dart';
 
@@ -60,7 +60,20 @@ class GamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Replace with screen contents
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        spacing: 5.0,
+        children: [
+          for (var guess in _game.guesses)
+            Row(
+              spacing: 5.0,
+              children: [
+                for (var letter in guess) Tile(letter.char, letter.type),
+              ],
+            ),
+        ],
+      ),
+    );
   }
 }
